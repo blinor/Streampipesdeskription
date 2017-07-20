@@ -20,8 +20,12 @@
             <artifactId>streampipes-sources</artifactId>
             <version>${sp.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.streampipes</groupId>
+            <artifactId>streampipes-sdk</artifactId>
+            <version>${sp.version}</version>
+        </dependency>
     </dependencies>
-
 
 
     <build>
@@ -81,45 +85,17 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <!--  <configuration>
-                      <archive>
-                          <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
-                      </archive>
-                  </configuration>-->
-            </plugin>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>org.streampipes.templates.sources.ExampleSourcesInit</mainClass>
-                        </manifest>
-                    </archive>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                </configuration>
-            </plugin>
         </plugins>
 
 
     </build>
 
-    <!--<pluginRepositories>-->
-        <!--<pluginRepository>-->
-            <!--<id>onejar-maven-plugin.googlecode.com</id>-->
-            <!--<url>http://onejar-maven-plugin.googlecode.com/svn/mavenrepo</url>-->
-        <!--</pluginRepository>-->
-    <!--</pluginRepositories>-->
 
     <repositories>
         <repository>
             <id>laus</id>
             <name>nexus repository</name>
-            <url>http://laus.fzi.de/nexus/content/repositories/public/</url>
+            <url>http://laus.fzi.de/nexus/content/repositories/snapshots/</url>
             <releases>
                 <enabled>true</enabled>
                 <updatePolicy>daily</updatePolicy>
@@ -128,6 +104,11 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
+        <repository>
+            <id>apache</id>
+            <url>https://repository.apache.org/content/repositories/releases/</url>
+        </repository>
+
 
     </repositories>
 </project>
