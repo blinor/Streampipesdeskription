@@ -8,6 +8,7 @@ import org.streampipes.sdk.helpers.EpProperties;
 import org.streampipes.sdk.helpers.Formats;
 import org.streampipes.sdk.helpers.Protocols;
 import org.streampipes.sources.AbstractAlreadyExistingStream;
+import org.streampipes.templates.sources.TemplateConfig;
 
 public class VehiclePositionStream extends AbstractAlreadyExistingStream {
 
@@ -20,8 +21,8 @@ public class VehiclePositionStream extends AbstractAlreadyExistingStream {
               .property(EpProperties.doubleEp("latitude", Geo.lat))
               .property(EpProperties.doubleEp("longitude", Geo.lng))
               .format(Formats.jsonFormat())
-              .protocol(Protocols.kafka("ipe-koi15.fzi.de", 9092, "my.company.vehicle" +
-                      ".position"))
+              .protocol(Protocols.kafka(TemplateConfig.INSTANCE.getKafkaHost(), TemplateConfig.INSTANCE.getKafkaPort(),
+                      "my.company.vehicle.position"))
               .build();
 
   }

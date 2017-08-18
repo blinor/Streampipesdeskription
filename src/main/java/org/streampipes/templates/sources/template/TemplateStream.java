@@ -6,6 +6,7 @@ import org.streampipes.sdk.builder.DataStreamBuilder;
 import org.streampipes.sdk.helpers.Formats;
 import org.streampipes.sdk.helpers.Protocols;
 import org.streampipes.sources.AbstractAlreadyExistingStream;
+import org.streampipes.templates.sources.TemplateConfig;
 
 public class TemplateStream extends AbstractAlreadyExistingStream {
 
@@ -27,7 +28,8 @@ public class TemplateStream extends AbstractAlreadyExistingStream {
                     TUTORIAL:
                     Change the kafka host, port and topic
                  */
-              .protocol(Protocols.kafka("kafkaHost", 9092, "example.topic"))
+              .protocol(Protocols.kafka(TemplateConfig.INSTANCE.getKafkaHost(), TemplateConfig.INSTANCE.getKafkaPort(),
+                      "example.topic"))
               .build();
     }
 }
