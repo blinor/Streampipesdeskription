@@ -16,8 +16,8 @@ public class TemplateSource implements SemanticEventProducerDeclarer {
      */
     @Override
     public SepDescription declareModel() {
-        return DataSourceBuilder.create("template-source", "Template Source", "This is a " +
-                "template to build your first StreamPipes source")
+        return DataSourceBuilder.create("air-weather-source", "Weather Stream", "A data  that " +
+                "holds Weather and Air Data Produced by stations.")
                 .build();
 
     }

@@ -3,8 +3,8 @@ services:
   template-sources:
     build: .
     ports:
-      - "8085:8085"
+      - "8090:8085"
     volumes:
       # Add route to the client config
-      - /Users/philippzehnder/.streampipes:/root/.streampipes
+      - \Users\micha\git\templates-sources:/root/.streampipes
 

@@ -2,7 +2,6 @@ package org.streampipes.templates.sources;
 
 import org.streampipes.container.init.DeclarersSingleton;
 import org.streampipes.container.standalone.init.StandaloneModelSubmitter;
-import org.streampipes.templates.sources.samples.VehicleSource;
 import org.streampipes.templates.sources.template.TemplateSource;
 
 /*
@@ -21,13 +20,14 @@ public class ExampleSourcesInit extends StandaloneModelSubmitter {
             Add the newly created event producer to the declarer singleton
          */
         DeclarersSingleton.getInstance()
-                .add(new VehicleSource())
                 .add(new TemplateSource());
         /*
             TOTORIAL:
             First a port for the service is set and then the server is started
          */
-        DeclarersSingleton.getInstance().setHostName(TemplateConfig.INSTANCE.getHost());
+        DeclarersSingleton.getInstance().setHostName("10.0.75.1");
+//        DeclarersSingleton.getInstance().setHostName(TemplateConfig.INSTANCE.getHost());
+        
         DeclarersSingleton.getInstance().setPort(TemplateConfig.INSTANCE.getPort());
         new ExampleSourcesInit().init();
     }
