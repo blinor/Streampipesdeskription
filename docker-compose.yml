@@ -1,10 +1,11 @@
 version: '2'
 services:
   weather_input:
-    build: .
+    image: weather_input
     ports:
-      - "8090:8085"
+      - "8087:8087"
     volumes:
       # Add route to the client config
       - \Users\micha\git\templates-sources:/root/.ba/weather
-
+    networks:
+      spnet:

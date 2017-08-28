@@ -21,7 +21,7 @@ public enum WeatherConfig {
     WeatherConfig() {
         config = SpConfig.getSpConfig("pe/org.streampipes.templates.sources");
         config.register(HOST, "template-sources", "Hostname for the pe templates project");
-        config.register(PORT, 8090, "Port for the pe slack integration");
+        config.register(PORT, 8087, "Port for the pe slack integration");
         config.register(KAFKA_HOST, "kafka", "Host for kafka of the pe sinks project");
         config.register(KAFKA_PORT, 9092, "Port for kafka of the pe sinks project");
         config.register(ZOOKEEPER_HOST, "zookeeper", "Host for zookeeper of the pe sinks project");
