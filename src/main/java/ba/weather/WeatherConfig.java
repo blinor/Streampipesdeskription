@@ -1,8 +1,8 @@
-package org.streampipes.templates.sources;
+package ba.weather;
 
 import org.streampipes.config.SpConfig;
 
-public enum TemplateConfig {
+public enum WeatherConfig {
     INSTANCE;
 
     private SpConfig config;
@@ -18,7 +18,7 @@ public enum TemplateConfig {
     public final static String serverUrl;
     public final static String iconBaseUrl;
 
-    TemplateConfig() {
+    WeatherConfig() {
         config = SpConfig.getSpConfig("pe/org.streampipes.templates.sources");
         config.register(HOST, "template-sources", "Hostname for the pe templates project");
         config.register(PORT, 8090, "Port for the pe slack integration");
@@ -29,8 +29,8 @@ public enum TemplateConfig {
     }
 
     static {
-        serverUrl = TemplateConfig.INSTANCE.getHost() + ":" + TemplateConfig.INSTANCE.getPort();
-        iconBaseUrl = TemplateConfig.INSTANCE.getHost() + ":" + TemplateConfig.INSTANCE.getPort() +"/img";
+        serverUrl = WeatherConfig.INSTANCE.getHost() + ":" + WeatherConfig.INSTANCE.getPort();
+        iconBaseUrl = WeatherConfig.INSTANCE.getHost() + ":" + WeatherConfig.INSTANCE.getPort() +"/img";
     }
 
     public String getHost() {

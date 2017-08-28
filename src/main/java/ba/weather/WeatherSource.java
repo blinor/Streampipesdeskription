@@ -1,4 +1,4 @@
-package org.streampipes.templates.sources.template;
+package ba.weather;
 
 import org.streampipes.container.declarer.EventStreamDeclarer;
 import org.streampipes.container.declarer.SemanticEventProducerDeclarer;
@@ -8,7 +8,7 @@ import org.streampipes.sdk.builder.DataSourceBuilder;
 import java.util.Arrays;
 import java.util.List;
 
-public class TemplateSource implements SemanticEventProducerDeclarer {
+public class WeatherSource implements SemanticEventProducerDeclarer {
 
     /*
         TUTORIAL:
@@ -29,7 +29,7 @@ public class TemplateSource implements SemanticEventProducerDeclarer {
      */
     @Override
     public List<EventStreamDeclarer> getEventStreams() {
-        return Arrays.asList(new TemplateStream());
+        return Arrays.asList(new WeatherStream());
     }
 
 }

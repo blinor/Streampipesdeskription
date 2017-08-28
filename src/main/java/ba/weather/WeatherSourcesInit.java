@@ -1,8 +1,7 @@
-package org.streampipes.templates.sources;
+package ba.weather;
 
 import org.streampipes.container.init.DeclarersSingleton;
 import org.streampipes.container.standalone.init.StandaloneModelSubmitter;
-import org.streampipes.templates.sources.template.TemplateSource;
 
 /*
     TUTORIAL:
@@ -11,7 +10,7 @@ import org.streampipes.templates.sources.template.TemplateSource;
     The main method starts a web server that provides all the descriptions of the registered
     producers and their streams.
  */
-public class ExampleSourcesInit extends StandaloneModelSubmitter {
+public class WeatherSourcesInit extends StandaloneModelSubmitter {
 
     public static void main(String[] args) {
 
@@ -20,7 +19,7 @@ public class ExampleSourcesInit extends StandaloneModelSubmitter {
             Add the newly created event producer to the declarer singleton
          */
         DeclarersSingleton.getInstance()
-                .add(new TemplateSource());
+                .add(new WeatherSource());
         /*
             TOTORIAL:
             First a port for the service is set and then the server is started
@@ -28,8 +27,8 @@ public class ExampleSourcesInit extends StandaloneModelSubmitter {
         DeclarersSingleton.getInstance().setHostName("10.0.75.1");
 //        DeclarersSingleton.getInstance().setHostName(TemplateConfig.INSTANCE.getHost());
         
-        DeclarersSingleton.getInstance().setPort(TemplateConfig.INSTANCE.getPort());
-        new ExampleSourcesInit().init();
+        DeclarersSingleton.getInstance().setPort(WeatherConfig.INSTANCE.getPort());
+        new WeatherSourcesInit().init();
     }
 
 }

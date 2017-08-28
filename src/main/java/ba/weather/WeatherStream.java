@@ -1,4 +1,4 @@
-package org.streampipes.templates.sources.template;
+package ba.weather;
 
 import org.streampipes.model.impl.EventStream;
 import org.streampipes.model.impl.graph.SepDescription;
@@ -8,9 +8,8 @@ import org.streampipes.sdk.helpers.EpProperties;
 import org.streampipes.sdk.helpers.Formats;
 import org.streampipes.sdk.helpers.Protocols;
 import org.streampipes.sources.AbstractAlreadyExistingStream;
-import org.streampipes.templates.sources.TemplateConfig;
 
-public class TemplateStream extends AbstractAlreadyExistingStream {
+public class WeatherStream extends AbstractAlreadyExistingStream {
 
     @Override
     public EventStream declareModel(SepDescription sepDescription) {
@@ -22,13 +21,13 @@ public class TemplateStream extends AbstractAlreadyExistingStream {
                 .property(EpProperties.doubleEp("latitude", Geo.lat))
                 .property(EpProperties.doubleEp("longitude", Geo.lng))
                 .property(EpProperties.doubleEp("heigth", Geo.alt))
-//                http://www.openphacts.org/units/PartsPerMillion
+//                http://www.qudt.org/qudt/owl/1.0.0/unit/Instances.html#Lux
                 .property(EpProperties.integerEp("ozn", "http://schema.org/Integer"))
                 .property(EpProperties.integerEp("lux", "http://schema.org/Integer"))
                 .property(EpProperties.integerEp("no2", "http://schema.org/Integer"))
                 .property(EpProperties.integerEp("so2", "http://schema.org/Integer"))
                 .format(Formats.jsonFormat())
-                .protocol(Protocols.kafka(TemplateConfig.INSTANCE.getKafkaHost(), TemplateConfig.INSTANCE.getKafkaPort(),
+                .protocol(Protocols.kafka(WeatherConfig.INSTANCE.getKafkaHost(), WeatherConfig.INSTANCE.getKafkaPort(),
                         "my.weather.lubw"))
                 .build();
     }

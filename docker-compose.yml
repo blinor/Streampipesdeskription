@@ -1,10 +1,10 @@
 version: '2'
 services:
-  template-sources:
+  weather_input:
     build: .
     ports:
       - "8090:8085"
     volumes:
       # Add route to the client config
-      - \Users\micha\git\templates-sources:/root/.streampipes
+      - \Users\micha\git\templates-sources:/root/.ba/weather
 
