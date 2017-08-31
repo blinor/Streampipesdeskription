@@ -20,14 +20,8 @@ public class WeatherSourcesInit extends StandaloneModelSubmitter {
          */
         DeclarersSingleton.getInstance()
                 .add(new WeatherSource());
-        /*
-            TOTORIAL:
-            First a port for the service is set and then the server is started
-         */
-        DeclarersSingleton.getInstance().setHostName("10.0.75.1");
-//        DeclarersSingleton.getInstance().setHostName(TemplateConfig.INSTANCE.getHost());
-        
-        DeclarersSingleton.getInstance().setPort(8087);
+        DeclarersSingleton.getInstance().setHostName(WeatherConfig.INSTANCE.getHost());
+        DeclarersSingleton.getInstance().setPort(WeatherConfig.INSTANCE.getPort());
         new WeatherSourcesInit().init();
     }
 
