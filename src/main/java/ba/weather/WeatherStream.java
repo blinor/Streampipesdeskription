@@ -1,6 +1,7 @@
 package ba.weather;
 
 import org.streampipes.model.impl.EventStream;
+import org.streampipes.model.impl.eventproperty.EventProperty;
 import org.streampipes.model.impl.graph.SepDescription;
 import org.streampipes.model.vocabulary.Geo;
 import org.streampipes.sdk.builder.DataStreamBuilder;
@@ -26,6 +27,7 @@ public class WeatherStream extends AbstractAlreadyExistingStream {
                 .property(EpProperties.integerEp("lux", "http://schema.org/Integer"))
                 .property(EpProperties.integerEp("no2", "http://schema.org/Integer"))
                 .property(EpProperties.integerEp("so2", "http://schema.org/Integer"))
+                .property(EpProperties.integerEp("pm10", "http://schema.org/Integer"))
                 .format(Formats.jsonFormat())
                 .protocol(Protocols.kafka(WeatherConfig.INSTANCE.getKafkaHost(), WeatherConfig.INSTANCE.getKafkaPort(),
                         "my.weather.lubw"))
