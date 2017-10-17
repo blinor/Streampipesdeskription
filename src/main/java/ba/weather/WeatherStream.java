@@ -29,7 +29,7 @@ public class WeatherStream extends AbstractAlreadyExistingStream {
 
 				.property(EpProperties.integerEp("ozn",
 						"https://www.eea.europa.eu/themes/air/air-quality/resources/glossary/g-m3"))
-				.property(EpProperties.integerEp("lux", "http://www.qudt.org/qudt/owl/1.0.0/unit/Instances.html#Lux"))
+				.property(EpProperties.integerEp("luqx", "http://schema.org/Integer"))
 				.property(EpProperties.integerEp("no2",
 						"https://www.eea.europa.eu/themes/air/air-quality/resources/glossary/g-m3"))
 				.property(EpProperties.integerEp("so2",
